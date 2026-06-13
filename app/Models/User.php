@@ -190,19 +190,8 @@ class User extends Authenticatable
                     }
                 }
             } else {
-                $productCategories = $this->products()->pluck('category')->toArray();
-                foreach ($productCategories as $pCat) {
-                    $pCat = strtolower($pCat);
-                    if (str_contains($pCat, 'bakery') || str_contains($pCat, 'roti')) {
-                        $tags[] = 'bakery';
-                    }
-                    if (str_contains($pCat, 'healthy') || str_contains($pCat, 'sehat') || str_contains($pCat, 'salad')) {
-                        $tags[] = 'healthy';
-                    }
-                    if (str_contains($pCat, 'indonesian') || str_contains($pCat, 'indonesia') || str_contains($pCat, 'warung') || str_contains($pCat, 'warteg')) {
-                        $tags[] = 'indonesian';
-                    }
-                }
+                // Prevent N+1 queries by avoiding lazy-loading relation during serialization
+                $productCategories = [];
             }
         } catch (\Exception $e) {
             // Silence relation errors in early migrations/seeding

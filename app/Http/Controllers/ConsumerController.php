@@ -20,7 +20,7 @@ class ConsumerController extends Controller
         app(AutoDonationService::class)->processProducts();
 
         $userId = Auth::id() ?? User::where('role', 'consumer')->value('id') ?? 1;
-        $orders = Order::with('items')
+        $orders = Order::with('items.product')
             ->where('customer_id', $userId)
             ->get();
 
