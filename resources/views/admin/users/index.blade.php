@@ -6,7 +6,7 @@
     <title>Manajemen Data User - Admin ShareMeal</title>
     <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}">
     <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>

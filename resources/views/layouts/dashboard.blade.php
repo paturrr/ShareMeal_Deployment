@@ -6,30 +6,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Dashboard - ShareMeal</title>
     <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        luxury: {
-                            ivory: '#F8FAFC',
-                            alabas: '#E2E8F0',
-                            gold: '#10B981',
-                            forest: '#174413',
-                            emerald: '#059669',
-                            charcoal: '#0F172A',
-                            slate: '#475569'
-                        }
-                    },
-                    fontFamily: {
-                        serif: ['"Plus Jakarta Sans"', 'sans-serif'],
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
